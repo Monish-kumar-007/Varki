@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Varnis Varki - Traditional South Indian Delight</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#e65c00',secondary:'#8a5a44'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Satisfy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .font-satisfy {
+            font-family: 'Satisfy', cursive;
+        }
+        .kolam-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e65c00' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .banana-leaf-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23006400' fill-opacity='0.07'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        .custom-checkbox {
+            appearance: none;
+            background-color: #fff;
+            border: 2px solid #e65c00;
+            border-radius: 4px;
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+        }
+        .custom-checkbox:checked {
+            background-color: #e65c00;
+        }
+        .custom-checkbox:checked::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 6px;
+            width: 6px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+        .custom-radio {
+            appearance: none;
+            background-color: #fff;
+            border: 2px solid #e65c00;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+        }
+        .custom-radio:checked::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #e65c00;
+        }
+        .custom-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+        .custom-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 24px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #e65c00;
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        .custom-range {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 6px;
+            background: #ddd;
+            border-radius: 5px;
+            outline: none;
+        }
+        .custom-range::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #e65c00;
+            cursor: pointer;
+        }
+        .custom-range::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #e65c00;
+            cursor: pointer;
+            border: none;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center">
+                <span class="font-['Pacifico'] text-2xl md:text-3xl text-primary">Varnis Varki</span>
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="text-gray-800 hover:text-primary font-medium transition-colors">Home</a>
+                <a href="#about" class="text-gray-800 hover:text-primary font-medium transition-colors">About</a>
+                <a href="#ingredients" class="text-gray-800 hover:text-primary font-medium transition-colors">Ingredients</a>
+                <a href="#gallery" class="text-gray-800 hover:text-primary font-medium transition-colors">Gallery</a>
+                <a href="#shop" class="text-gray-800 hover:text-primary font-medium transition-colors">Shop</a>
+                <a href="#contact" class="text-gray-800 hover:text-primary font-medium transition-colors">Contact</a>
+            </nav>
+            
+            <!-- Language Selector -->
+            <div class="hidden md:flex items-center">
+                <div class="relative">
+                    <button id="language-btn" class="flex items-center text-gray-700 hover:text-primary">
+                        <span class="mr-1">EN</span>
+                        <div class="w-5 h-5 flex items-center justify-center">
+                            <i class="ri-arrow-down-s-line"></i>
+                        </div>
+                    </button>
+                    <div id="language-dropdown" class="hidden absolute right-0 mt-2 w-24 bg-white shadow-lg rounded py-1 z-10">
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">English</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Tamil</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden flex items-center">
+                <div class="w-6 h-6 flex items-center justify-center">
+                    <i class="ri-menu-line text-xl"></i>
+                </div>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-2">
+                <a href="#home" class="block py-2 text-gray-800 hover:text-primary">Home</a>
+                <a href="#about" class="block py-2 text-gray-800 hover:text-primary">About</a>
+                <a href="#ingredients" class="block py-2 text-gray-800 hover:text-primary">Ingredients</a>
+                <a href="#gallery" class="block py-2 text-gray-800 hover:text-primary">Gallery</a>
+                <a href="#shop" class="block py-2 text-gray-800 hover:text-primary">Shop</a>
+                <a href="#contact" class="block py-2 text-gray-800 hover:text-primary">Contact</a>
+                
+                <!-- Mobile Language Selector -->
+                <div class="py-2 border-t mt-2">
+                    <span class="text-sm text-gray-500">Language:</span>
+                    <div class="flex space-x-4 mt-1">
+                        <a href="#" class="text-primary font-medium">English</a>
+                        <a href="#" class="text-gray-700 hover:text-primary">Tamil</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-20 relative overflow-hidden" style="background-image: url('https://readdy.ai/api/search-image?query=Traditional%20South%20Indian%20tea%20shop%20scene%20with%20steaming%20cups%20of%20tea%20and%20golden%20crispy%20snacks%20on%20banana%20leaves%2C%20warm%20lighting%2C%20people%20enjoying%20tea%2C%20rustic%20wooden%20tables%2C%20traditional%20decor%2C%20earthy%20tones%2C%20nostalgic%20atmosphere%2C%20high-quality%20food%20photography&width=1920&height=1080&seq=1&orientation=landscape'); background-size: cover; background-position: center;">
+        <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent"></div>
+        <div class="container mx-auto px-4 py-20 md:py-32 relative z-10">
+            <div class="max-w-xl">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">Traditional South Indian Delight</h1>
+                <p class="text-xl text-white/90 mb-8">Experience the authentic taste of South India with our crispy, golden Varki - the perfect companion to your evening tea.</p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#shop" class="bg-primary text-white px-8 py-3 rounded-button font-medium hover:bg-primary/90 transition-colors whitespace-nowrap">Order Now</a>
+                    <a href="#about" class="bg-white text-primary px-8 py-3 rounded-button font-medium hover:bg-gray-100 transition-colors whitespace-nowrap">Learn More</a>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent"></div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 kolam-pattern">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-2">About Varki</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                <div class="md:w-1/2">
+                    <img src="https://readdy.ai/api/search-image?query=Close-up%20of%20golden%20crispy%20South%20Indian%20Varki%20snack%20on%20traditional%20banana%20leaf%2C%20detailed%20texture%20showing%20flaky%20layers%2C%20warm%20natural%20lighting%2C%20rustic%20wooden%20background%2C%20authentic%20presentation%2C%20no%20people%2C%20food%20photography%20with%20shallow%20depth%20of%20field&width=600&height=600&seq=2&orientation=squarish" alt="Traditional Varki" class="rounded-lg shadow-lg w-full object-cover">
+                </div>
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl font-satisfy text-primary mb-4">A Beloved South Indian Tradition</h3>
+                    <p class="text-gray-700 mb-4">Varki is a cherished South Indian tea shop snack that has been delighting taste buds for generations. This crispy, golden delicacy is crafted with care using traditional methods passed down through families.</p>
+                    <p class="text-gray-700 mb-4">In the bustling tea shops of South India, Varki is served alongside steaming cups of chai, creating a perfect harmony of flavors. The satisfying crunch and subtle spice notes make it an irresistible companion to the rich, milky tea.</p>
+                    <p class="text-gray-700 mb-6">At Varnis Varki, we preserve this cultural heritage by creating authentic Varki using time-honored techniques and the finest ingredients. Each piece is a celebration of South Indian culinary tradition.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full mr-3">
+                                <i class="ri-history-line text-primary"></i>
+                            </div>
+                            <span class="font-medium">Traditional Recipe</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full mr-3">
+                                <i class="ri-hand-heart-line text-primary"></i>
+                            </div>
+                            <span class="font-medium">Handcrafted</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full mr-3">
+                                <i class="ri-leaf-line text-primary"></i>
+                            </div>
+                            <span class="font-medium">Natural Ingredients</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Ingredients Section -->
+    <section id="ingredients" class="py-20 bg-gray-50 banana-leaf-pattern">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-2">Ingredients & How It's Made</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-4"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">Discover the authentic ingredients and traditional techniques that make our Varki special.</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow">
+                    <div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-full mx-auto mb-4">
+                        <i class="ri-seedling-line text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="font-medium mb-2">Rice Flour</h3>
+                    <p class="text-gray-600 text-sm">Finely milled for perfect texture</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow">
+                    <div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-full mx-auto mb-4">
+                        <i class="ri-plant-line text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="font-medium mb-2">Cumin Seeds</h3>
+                    <p class="text-gray-600 text-sm">For aromatic flavor</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow">
+                    <div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-full mx-auto mb-4">
+                        <i class="ri-drop-line text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="font-medium mb-2">Clarified Butter</h3>
+                    <p class="text-gray-600 text-sm">For rich, golden texture</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow">
+                    <div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-full mx-auto mb-4">
+                        <i class="ri-heart-line text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="font-medium mb-2">Love & Tradition</h3>
+                    <p class="text-gray-600 text-sm">Our secret ingredient</p>
+                </div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl font-satisfy text-primary mb-6">The Art of Making Varki</h3>
+                    <div class="space-y-6">
+                        <div class="flex">
+                            <div class="flex-shrink-0 mr-4">
+                                <div class="w-8 h-8 flex items-center justify-center bg-primary text-white rounded-full font-medium">1</div>
+                            </div>
+                            <div>
+                                <h4 class="font-medium mb-2">Preparing the Dough</h4>
+                                <p class="text-gray-600">Rice flour is mixed with carefully measured spices, salt, and water to create a smooth, consistent dough that will yield the perfect texture.</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="flex-shrink-0 mr-4">
+                                <div class="w-8 h-8 flex items-center justify-center bg-primary text-white rounded-full font-medium">2</div>
+                            </div>
+                            <div>
+                                <h4 class="font-medium mb-2">Rolling & Shaping</h4>
+                                <p class="text-gray-600">The dough is rolled into thin sheets and cut into the distinctive Varki shape, a process requiring skilled hands and years of experience.</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="flex-shrink-0 mr-4">
+                                <div class="w-8 h-8 flex items-center justify-center bg-primary text-white rounded-full font-medium">3</div>
+                            </div>
+                            <div>
+                                <h4 class="font-medium mb-2">Traditional Frying</h4>
+                                <p class="text-gray-600">Each piece is fried in clarified butter at the perfect temperature until it achieves the signature golden color and crispy texture.</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="flex-shrink-0 mr-4">
+                                <div class="w-8 h-8 flex items-center justify-center bg-primary text-white rounded-full font-medium">4</div>
+                            </div>
+                            <div>
+                                <h4 class="font-medium mb-2">Cooling & Packaging</h4>
+                                <p class="text-gray-600">The freshly fried Varki is allowed to cool before being carefully packaged to preserve its crispness and flavor for your enjoyment.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="https://readdy.ai/api/search-image?query=Traditional%20South%20Indian%20kitchen%20scene%20with%20elderly%20woman%20making%20Varki%20snack%2C%20rolling%20dough%2C%20traditional%20cookware%2C%20warm%20lighting%2C%20rustic%20setting%2C%20authentic%20process%2C%20detailed%20hands%20working%2C%20cultural%20heritage%2C%20documentary%20style%20photography&width=600&height=800&seq=3&orientation=portrait" alt="Making Varki" class="rounded-lg shadow-lg w-full h-full object-cover object-top">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-2">Gallery</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-4"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">See our Varki journey from preparation to enjoyment.</p>
+            </div>
+            
+            <div class="flex mb-8 border-b">
+                <button class="gallery-filter active px-4 py-2 text-primary border-b-2 border-primary">All</button>
+                <button class="gallery-filter px-4 py-2 text-gray-600 hover:text-primary">Preparation</button>
+                <button class="gallery-filter px-4 py-2 text-gray-600 hover:text-primary">Packaging</button>
+                <button class="gallery-filter px-4 py-2 text-gray-600 hover:text-primary">Serving</button>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div class="gallery-item preparation overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <img src="https://readdy.ai/api/search-image?query=Close-up%20of%20hands%20preparing%20Varki%20dough%2C%20rolling%20thin%20sheets%20on%20wooden%20surface%2C%20traditional%20South%20Indian%20kitchen%20setting%2C%20warm%20natural%20lighting%2C%20authentic%20process%2C%20detailed%20textures%2C%20documentary%20style%20photography&width=600&height=600&seq=4&orientation=squarish" alt="Preparing Varki dough" class="w-full h-64 object-cover object-top hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="gallery-item serving overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <img src="https://readdy.ai/api/search-image?query=South%20Indian%20tea%20shop%20scene%20with%20steaming%20cup%20of%20chai%20and%20freshly%20made%20Varki%20snacks%20on%20traditional%20banana%20leaf%2C%20customers%20enjoying%20tea%20time%2C%20warm%20ambient%20lighting%2C%20authentic%20setting%2C%20cultural%20experience&width=600&height=600&seq=5&orientation=squarish" alt="Serving Varki with tea" class="w-full h-64 object-cover object-top hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="gallery-item preparation overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <img src="https://readdy.ai/api/search-image?query=Traditional%20frying%20process%20of%20Varki%20in%20large%20pan%20with%20clarified%20butter%2C%20golden%20crispy%20snacks%20being%20removed%20with%20mesh%20skimmer%2C%20steam%20rising%2C%20South%20Indian%20kitchen%2C%20skilled%20hands%2C%20authentic%20cooking%20method&width=600&height=600&seq=6&orientation=squarish" alt="Frying Varki" class="w-full h-64 object-cover object-top hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="gallery-item packaging overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <img src="https://readdy.ai/api/search-image?query=Beautifully%20packaged%20Varki%20in%20eco-friendly%20traditional%20packaging%20with%20banana%20leaf%20elements%2C%20branded%20box%20with%20South%20Indian%20design%20motifs%2C%20ready%20for%20gifting%2C%20product%20photography%20on%20wooden%20surface&width=600&height=600&seq=7&orientation=squarish" alt="Packaged Varki" class="w-full h-64 object-cover object-top hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="gallery-item serving overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <img src="https://readdy.ai/api/search-image?query=Family%20gathering%20enjoying%20Varki%20with%20evening%20tea%2C%20multiple%20generations%2C%20traditional%20South%20Indian%20home%20setting%2C%20warm%20lighting%2C%20joyful%20atmosphere%2C%20cultural%20bonding%2C%20authentic%20lifestyle%20photography&width=600&height=600&seq=8&orientation=squarish" alt="Family enjoying Varki" class="w-full h-64 object-cover object-top hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="gallery-item preparation overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <img src="https://readdy.ai/api/search-image?query=Close-up%20of%20spices%20and%20ingredients%20for%20Varki%20preparation%20laid%20out%20on%20traditional%20stone%20surface%2C%20cumin%20seeds%2C%20rice%20flour%2C%20clarified%20butter%2C%20measuring%20spoons%2C%20South%20Indian%20kitchen%20setting%2C%20ingredient%20photography&width=600&height=600&seq=9&orientation=squarish" alt="Varki ingredients" class="w-full h-64 object-cover object-top hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="gallery-item packaging overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <img src="https://readdy.ai/api/search-image?query=Worker%20packaging%20fresh%20Varki%20in%20modern%20facility%2C%20hygienic%20environment%2C%20quality%20control%2C%20assembly%20line%2C%20traditional%20snack%20meets%20modern%20packaging%2C%20industrial%20food%20preparation%20with%20cultural%20elements&width=600&height=600&seq=10&orientation=squarish" alt="Packaging process" class="w-full h-64 object-cover object-top hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="gallery-item serving overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <img src="https://readdy.ai/api/search-image?query=Overhead%20view%20of%20traditional%20South%20Indian%20tea%20time%20spread%20with%20Varki%2C%20chai%20in%20brass%20cups%2C%20banana%20leaf%20serving%2C%20other%20snacks%2C%20rustic%20wooden%20table%2C%20authentic%20presentation%2C%20cultural%20food%20photography&width=600&height=600&seq=11&orientation=squarish" alt="Traditional tea time" class="w-full h-64 object-cover object-top hover:scale-105 transition-transform duration-300">
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <a href="#" class="inline-flex items-center text-primary hover:text-primary/80 font-medium">
+                    <span>View More on Instagram</span>
+                    <div class="w-5 h-5 flex items-center justify-center ml-1">
+                        <i class="ri-arrow-right-line"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop Section -->
+    <section id="shop" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-2">Shop Varki</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-4"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">Order our authentic South Indian Varki delivered to your doorstep.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=Small%20package%20of%20Varki%20snacks%20in%20traditional%20packaging%20with%20clear%20window%20showing%20product%2C%20branded%20design%20with%20South%20Indian%20motifs%2C%20product%20photography%20on%20clean%20white%20background%2C%20professional%20lighting&width=600&height=400&seq=12&orientation=landscape" alt="Small Pack Varki" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-medium mb-2">Small Pack</h3>
+                        <p class="text-gray-600 mb-4">Perfect for individuals or small families. Enjoy the authentic taste of Varki with your evening tea.</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-2xl font-semibold text-primary">₹120</span>
+                            <div class="flex items-center">
+                                <button class="quantity-btn minus w-8 h-8 flex items-center justify-center bg-gray-100 rounded-l-button">
+                                    <i class="ri-subtract-line"></i>
+                                </button>
+                                <input type="number" value="1" min="1" class="w-12 h-8 text-center border-y border-gray-200 focus:outline-none">
+                                <button class="quantity-btn plus w-8 h-8 flex items-center justify-center bg-gray-100 rounded-r-button">
+                                    <i class="ri-add-line"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <button class="w-full bg-primary text-white py-2 rounded-button font-medium hover:bg-primary/90 transition-colors whitespace-nowrap">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                    <div class="h-48 overflow-hidden relative">
+                        <div class="absolute top-2 right-2 bg-primary text-white text-sm font-medium px-3 py-1 rounded-full">Best Seller</div>
+                        <img src="https://readdy.ai/api/search-image?query=Medium%20sized%20family%20pack%20of%20Varki%20snacks%20in%20premium%20packaging%20with%20traditional%20design%20elements%2C%20larger%20quantity%20visible%20through%20packaging%20window%2C%20product%20photography%20on%20clean%20white%20background%2C%20professional%20lighting&width=600&height=400&seq=13&orientation=landscape" alt="Family Pack Varki" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-medium mb-2">Family Pack</h3>
+                        <p class="text-gray-600 mb-4">Ideal for families or gatherings. Share the joy of authentic Varki with loved ones.</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-2xl font-semibold text-primary">₹220</span>
+                            <div class="flex items-center">
+                                <button class="quantity-btn minus w-8 h-8 flex items-center justify-center bg-gray-100 rounded-l-button">
+                                    <i class="ri-subtract-line"></i>
+                                </button>
+                                <input type="number" value="1" min="1" class="w-12 h-8 text-center border-y border-gray-200 focus:outline-none">
+                                <button class="quantity-btn plus w-8 h-8 flex items-center justify-center bg-gray-100 rounded-r-button">
+                                    <i class="ri-add-line"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <button class="w-full bg-primary text-white py-2 rounded-button font-medium hover:bg-primary/90 transition-colors whitespace-nowrap">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=Premium%20gift%20box%20of%20Varki%20snacks%20in%20luxury%20packaging%20with%20traditional%20South%20Indian%20design%20elements%2C%20gold%20accents%2C%20ribbon%2C%20elegant%20presentation%2C%20product%20photography%20on%20clean%20white%20background%2C%20professional%20lighting&width=600&height=400&seq=14&orientation=landscape" alt="Gift Box Varki" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-medium mb-2">Gift Box</h3>
+                        <p class="text-gray-600 mb-4">Premium packaging perfect for gifting. Share the tradition of Varki with friends and family.</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-2xl font-semibold text-primary">₹350</span>
+                            <div class="flex items-center">
+                                <button class="quantity-btn minus w-8 h-8 flex items-center justify-center bg-gray-100 rounded-l-button">
+                                    <i class="ri-subtract-line"></i>
+                                </button>
+                                <input type="number" value="1" min="1" class="w-12 h-8 text-center border-y border-gray-200 focus:outline-none">
+                                <button class="quantity-btn plus w-8 h-8 flex items-center justify-center bg-gray-100 rounded-r-button">
+                                    <i class="ri-add-line"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <button class="w-full bg-primary text-white py-2 rounded-button font-medium hover:bg-primary/90 transition-colors whitespace-nowrap">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 bg-white rounded-lg shadow-md p-8">
+                <h3 class="text-2xl font-medium mb-6">Bulk Orders & Special Requests</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <p class="text-gray-700 mb-4">Planning an event or need a large quantity? We offer special pricing for bulk orders and can customize packaging for special occasions.</p>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+                                    <i class="ri-check-line"></i>
+                                </div>
+                                <p class="text-gray-600">Wedding favors with custom packaging</p>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+                                    <i class="ri-check-line"></i>
+                                </div>
+                                <p class="text-gray-600">Corporate gifting with your company logo</p>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+                                    <i class="ri-check-line"></i>
+                                </div>
+                                <p class="text-gray-600">Festival special packaging</p>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+                                    <i class="ri-check-line"></i>
+                                </div>
+                                <p class="text-gray-600">Bulk orders for events and gatherings</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <form>
+                            <div class="mb-4">
+                                <label for="request-name" class="block text-gray-700 mb-2">Name</label>
+                                <input type="text" id="request-name" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-primary" placeholder="Your name">
+                            </div>
+                            <div class="mb-4">
+                                <label for="request-email" class="block text-gray-700 mb-2">Email</label>
+                                <input type="email" id="request-email" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-primary" placeholder="Your email">
+                            </div>
+                            <div class="mb-4">
+                                <label for="request-details" class="block text-gray-700 mb-2">Request Details</label>
+                                <textarea id="request-details" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-primary" placeholder="Tell us about your requirements"></textarea>
+                            </div>
+                            <button type="submit" class="bg-primary text-white px-6 py-2 rounded-button font-medium hover:bg-primary/90 transition-colors whitespace-nowrap">Submit Request</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-2">Contact Us</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-4"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">We'd love to hear from you! Reach out with questions, feedback, or wholesale inquiries.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+                <div>
+                    <form class="bg-white p-8 rounded-lg shadow-md">
+                        <div class="mb-6">
+                            <label for="name" class="block text-gray-700 mb-2">Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-primary" placeholder="Your name">
+                        </div>
+                        <div class="mb-6">
+                            <label for="email" class="block text-gray-700 mb-2">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-primary" placeholder="Your email">
+                        </div>
+                        <div class="mb-6">
+                            <label for="phone" class="block text-gray-700 mb-2">Phone Number</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-primary" placeholder="Your phone number">
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 mb-2">Message</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-primary" placeholder="Your message"></textarea>
+                        </div>
+                        <button type="submit" class="bg-primary text-white px-6 py-3 rounded-button font-medium hover:bg-primary/90 transition-colors whitespace-nowrap">Send Message</button>
+                    </form>
+                </div>
+                
+                <div class="space-y-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-medium mb-4">Get in Touch</h3>
+                        <div class="space-y-4">
+                            <div class="flex">
+                                <div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full mr-4">
+                                    <i class="ri-map-pin-line text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">Address</h4>
+                                    <p class="text-gray-600">42 Spice Market Road, Mylapore, Chennai - 600004, Tamil Nadu, India</p>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full mr-4">
+                                    <i class="ri-phone-line text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">Phone</h4>
+                                    <p class="text-gray-600">+91 98765 43210</p>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full mr-4">
+                                    <i class="ri-mail-line text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">Email</h4>
+                                    <p class="text-gray-600">info@varnisvarki.com</p>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full mr-4">
+                                    <i class="ri-time-line text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">Business Hours</h4>
+                                    <p class="text-gray-600">Monday - Saturday: 9:00 AM - 7:00 PM<br>Sunday: 10:00 AM - 4:00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-medium mb-4">Connect With Us</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full hover:bg-primary/20 transition-colors">
+                                <i class="ri-facebook-fill text-primary"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full hover:bg-primary/20 transition-colors">
+                                <i class="ri-instagram-line text-primary"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full hover:bg-primary/20 transition-colors">
+                                <i class="ri-twitter-x-line text-primary"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full hover:bg-primary/20 transition-colors">
+                                <i class="ri-whatsapp-line text-primary"></i>
+                            </a>
+                        </div>
+                        <div class="mt-6">
+                            <a href="https://wa.me/919876543210" class="flex items-center justify-center bg-green-500 text-white px-4 py-2 rounded-button font-medium hover:bg-green-600 transition-colors whitespace-nowrap">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-whatsapp-line"></i>
+                                </div>
+                                <span>Chat on WhatsApp</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-medium mb-4">Location</h3>
+                        <div class="h-48 bg-gray-200 rounded overflow-hidden" style="background-image: url('https://public.readdy.ai/gen_page/map_placeholder_1280x720.png'); background-size: cover; background-position: center;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-16 bg-primary/10">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl mx-auto text-center">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">Subscribe to Our Newsletter</h2>
+                <p class="text-gray-600 mb-6">Stay updated with new flavors, special offers, and Varki recipes.</p>
+                <form class="flex flex-col sm:flex-row gap-4">
+                    <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-l-button sm:rounded-r-none rounded-r-button border-none focus:outline-none shadow-sm">
+                    <button type="submit" class="bg-primary text-white px-6 py-3 rounded-r-button sm:rounded-l-none rounded-l-button font-medium hover:bg-primary/90 transition-colors whitespace-nowrap">Subscribe</button>
+                </form>
+                <p class="text-sm text-gray-500 mt-4">We respect your privacy. Unsubscribe at any time.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <a href="#" class="inline-block mb-4">
+                        <span class="font-['Pacifico'] text-3xl text-white">Varnis Varki</span>
+                    </a>
+                    <p class="text-gray-400 mb-6">Bringing the authentic taste of South Indian tea shops to your home since 1982.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-8 h-8 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+                            <i class="ri-instagram-line"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+                            <i class="ri-twitter-x-line"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+                            <i class="ri-youtube-line"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About Varki</a></li>
+                        <li><a href="#ingredients" class="text-gray-400 hover:text-white transition-colors">How It's Made</a></li>
+                        <li><a href="#gallery" class="text-gray-400 hover:text-white transition-colors">Gallery</a></li>
+                        <li><a href="#shop" class="text-gray-400 hover:text-white transition-colors">Shop</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <ul class="space-y-3">
+                        <li class="flex">
+                            <div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-3">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <span class="text-gray-400">42 Spice Market Road, Mylapore, Chennai - 600004</span>
+                        </li>
+                        <li class="flex">
+                            <div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-3">
+                                <i class="ri-phone-line"></i>
+                            </div>
+                            <span class="text-gray-400">+91 98765 43210</span>
+                        </li>
+                        <li class="flex">
+                            <div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-3">
+                                <i class="ri-mail-line"></i>
+                            </div>
+                            <span class="text-gray-400">info@varnisvarki.com</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Business Hours</h3>
+                    <ul class="space-y-2">
+                        <li class="flex justify-between">
+                            <span class="text-gray-400">Monday - Friday:</span>
+                            <span class="text-gray-400">9:00 AM - 7:00 PM</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span class="text-gray-400">Saturday:</span>
+                            <span class="text-gray-400">9:00 AM - 7:00 PM</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span class="text-gray-400">Sunday:</span>
+                            <span class="text-gray-400">10:00 AM - 4:00 PM</span>
+                        </li>
+                    </ul>
+                    <div class="mt-6">
+                        <h3 class="text-lg font-semibold mb-3">We Accept</h3>
+                        <div class="flex space-x-3">
+                            <div class="w-8 h-8 flex items-center justify-center">
+                                <i class="ri-visa-fill text-xl text-gray-400"></i>
+                            </div>
+                            <div class="w-8 h-8 flex items-center justify-center">
+                                <i class="ri-mastercard-fill text-xl text-gray-400"></i>
+                            </div>
+                            <div class="w-8 h-8 flex items-center justify-center">
+                                <i class="ri-paypal-fill text-xl text-gray-400"></i>
+                            </div>
+                            <div class="w-8 h-8 flex items-center justify-center">
+                                <i class="ri-amazon-pay-fill text-xl text-gray-400"></i>
+                            </div>
+                            <div class="w-8 h-8 flex items-center justify-center">
+                                <i class="ri-google-pay-fill text-xl text-gray-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-500 text-sm mb-4 md:mb-0">&copy; 2025 Varnis Varki. All rights reserved.</p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-500 text-sm hover:text-white transition-colors">Privacy Policy</a>
+                        <a href="#" class="text-gray-500 text-sm hover:text-white transition-colors">Terms of Service</a>
+                        <a href="#" class="text-gray-500 text-sm hover:text-white transition-colors">Shipping Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+                
+                // Change icon based on menu state
+                const icon = mobileMenuButton.querySelector('i');
+                if (mobileMenu.classList.contains('hidden')) {
+                    icon.className = 'ri-menu-line text-xl';
+                } else {
+                    icon.className = 'ri-close-line text-xl';
+                }
+            });
+            
+            // Language Dropdown Toggle
+            const languageBtn = document.getElementById('language-btn');
+            const languageDropdown = document.getElementById('language-dropdown');
+            
+            if (languageBtn && languageDropdown) {
+                languageBtn.addEventListener('click', function() {
+                    languageDropdown.classList.toggle('hidden');
+                });
+                
+                // Close dropdown when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (!languageBtn.contains(event.target) && !languageDropdown.contains(event.target)) {
+                        languageDropdown.classList.add('hidden');
+                    }
+                });
+            }
+            
+            // Close mobile menu when clicking on a link
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuButton.querySelector('i').className = 'ri-menu-line text-xl';
+                });
+            });
+        });
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Gallery Filter
+            const filterButtons = document.querySelectorAll('.gallery-filter');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => {
+                        btn.classList.remove('active', 'text-primary', 'border-primary');
+                        btn.classList.add('text-gray-600');
+                    });
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active', 'text-primary', 'border-b-2', 'border-primary');
+                    this.classList.remove('text-gray-600');
+                    
+                    const filter = this.textContent.toLowerCase().trim();
+                    
+                    // Show/hide gallery items based on filter
+                    galleryItems.forEach(item => {
+                        if (filter === 'all') {
+                            item.style.display = 'block';
+                        } else if (item.classList.contains(filter)) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Quantity Buttons
+            const minusButtons = document.querySelectorAll('.quantity-btn.minus');
+            const plusButtons = document.querySelectorAll('.quantity-btn.plus');
+            
+            minusButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const input = this.nextElementSibling;
+                    let value = parseInt(input.value);
+                    if (value > 1) {
+                        input.value = value - 1;
+                    }
+                });
+            });
+            
+            plusButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const input = this.previousElementSibling;
+                    let value = parseInt(input.value);
+                    input.value = value + 1;
+                });
+            });
+        });
+    </script>
+</body>
+</html>
